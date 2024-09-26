@@ -1,6 +1,19 @@
+using ModuloAPI.Context; // Importamos
+using Microsoft.EntityFrameworkCore; // Importamos
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<AgendaContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao"))); // Falando que o AgendaContext.cs vai usar a string de conexão do JSON
+
+// AddDbContext<AgendaContext>: Adiciona um dbContext do tipo AgendaContext
+// options => options.UseSqlServer: Passa as opções e usa o SQL Server (se fosse MYSQL seria UseMsql)
+// builder.Configuration: Pega as configurações do appsettings.Development.json
+// GetConnectionString: Pega a chave ConnectionStrings
+// "ConexaoPadrao": Acessa o valor da chave ConnectionStrings: "ConexaoPadrao"
+
+
 builder.Services.AddControllers(); // Adiciona controladores
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
