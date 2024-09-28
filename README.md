@@ -130,7 +130,7 @@ namespace ModuloAPI.Controllers
 * O objetido será fazer um CRUD de contatos
 * Criar pasta Entities(Models) -> tudo que ta na pasta se refere a uma tabela do banco de dados -> Criar classe Contatos.cs (dentro da pasta)
 
-**Contados.cs:**
+**Contatos.cs:**
 ~~~~C#
 using System;
 using System.Collections.Generic;
